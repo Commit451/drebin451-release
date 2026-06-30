@@ -1,0 +1,48 @@
+name: Drebin451 Release
+description: Upload an Android APK release to Drebin451.
+author: Commit451
+branding:
+  icon: upload-cloud
+  color: green
+
+inputs:
+  api-key:
+    description: Drebin451 API key sent in the X-API-Key header.
+    required: true
+  apk-path:
+    description: Path to the APK file to upload.
+    required: true
+  upload-url:
+    description: Drebin451 upload endpoint URL.
+    required: false
+    default: https://api.drebin451.com/v1/apps
+  note:
+    description: Optional release note attached to the uploaded version.
+    required: false
+    default: ""
+  timeout-seconds:
+    description: Maximum time to allow for the upload request.
+    required: false
+    default: "300"
+
+outputs:
+  response-json:
+    description: Raw JSON response returned by Drebin451.
+  version-id:
+    description: Drebin451 version id for the uploaded APK.
+  app-id:
+    description: Drebin451 app id for the uploaded APK.
+  application-id:
+    description: Android application id parsed from the APK.
+  version-name:
+    description: Android versionName parsed from the APK.
+  version-code:
+    description: Android versionCode parsed from the APK.
+  file-name:
+    description: File name stored for the uploaded APK.
+  file-size-bytes:
+    description: Size in bytes of the uploaded APK.
+
+runs:
+  using: node20
+  main: dist/index.js
