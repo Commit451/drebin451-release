@@ -78,7 +78,7 @@ jobs:
     apk-path: app/androidApp/build/outputs/apk/release/androidApp-release.apk
 
 - name: Print uploaded version
-  run: echo "Uploaded ${{ steps.drebin451.outputs.application-id }} ${{ steps.drebin451.outputs.version-name }}"
+  run: echo "Uploaded ${{ steps.drebin451.outputs['application-id'] }} ${{ steps.drebin451.outputs['version-name'] }}"
 ```
 
 ## Inputs
